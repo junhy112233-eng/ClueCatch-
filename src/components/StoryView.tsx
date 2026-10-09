@@ -376,7 +376,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
                   }`}
                 >
                   <Sparkles className="w-4 h-4" />
-                  <span>{canProceedToResult ? 'Crack Case & Eat Pancakes! 🥞' : 'Collect All Badges to Crack Case'}</span>
+                  <span>{canProceedToResult ? 'Crack Case & Eat Pancakes! 🥞' : 'Collect All Badges First'}</span>
                 </button>
               ) : (
                 <button
@@ -390,15 +390,13 @@ export const StoryView: React.FC<StoryViewProps> = ({
                       onNextPage();
                     }
                   }}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs md:text-sm shadow-md transition-all hover:scale-102 cursor-pointer"
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm shadow-md transition-all cursor-pointer ${
+                    hasBadge
+                      ? 'bg-amber-500 hover:bg-amber-600 text-white hover:scale-102'
+                      : 'bg-stone-200 text-stone-600 hover:bg-stone-300'
+                  }`}
                 >
-                  <span>
-                    {!areAllPageCluesFound
-                      ? 'Find Clues First! 🔍'
-                      : !hasBadge
-                      ? 'Solve Quiz for Badge 🎯'
-                      : 'Next Page ▶'}
-                  </span>
+                  <span>Next Page</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               )}

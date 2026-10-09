@@ -5,7 +5,7 @@ import {
   PhaseIntroData,
   PhaseId,} from '../types/story';
 
-import COVER_IMAGE from '../assets/images/cover_nate_the_great_1791518048362.jpg';
+import COVER_IMAGE from '../assets/images/cover_nate_clean_1791526052058.jpg';
 import FANG_IMAGE from '../assets/images/scene_fang_annie_1791518059467.jpg';
 import ROSAMOND_IMAGE from '../assets/images/scene_rosamond_cats_1791518070076.jpg';
 import HARRY_IMAGE from '../assets/images/scene_harry_painting_1791518080314.jpg';

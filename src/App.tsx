@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { CoverScreen } from './components/CoverScreen';
 import { StoryView } from './components/StoryView';
@@ -89,36 +89,33 @@ export default function App() {
     });
   };
 
-  const handleBadgeCollected = (badge: ClueBadge) => {
+  const handleBadgeCollected = useCallback((badge: ClueBadge) => {
     setCollectedBadges((prev) => {
       if (prev.some((b) => b.id === badge.id)) return prev;
       return [...prev, badge];
     });
-  };
+  }, []);
 
-  // Requirement 3 & 5: When learner accepts badge, close modal and advance
-  const handleAcceptBadgeAndContinue = () => {
+  // When learner earns/accepts badge, close modal and advance
+  const handleAcceptBadgeAndContinue = useCallback(() => {
     setIsNotebookOpen(false);
 
-    if (currentPageIndex === STORY_PAGES.length - 1) {
-      // Reached the end! Check if all badges collected
-      sound.playBadgeFanfare();
-      setCurrentView('result');
-      return;
-    }
+    setCurrentPageIndex((prevIndex) => {
+      if (prevIndex === STORY_PAGES.length - 1) {
+        sound.playBadgeFanfare();
+        setCurrentView('result');
+        return prevIndex;
+      }
 
-    const nextIndex = currentPageIndex + 1;
-    setCurrentPageIndex(nextIndex);
-
-    // Requirement 4: When transitioning into Phase 2 or Phase 3, show suspect intro slide!
-    if (nextIndex === 3) {
-      // Starting Phase 2: Rosamond
-      setActivePhaseIntro(2);
-    } else if (nextIndex === 6) {
-      // Starting Phase 3: Harry
-      setActivePhaseIntro(3);
-    }
-  };
+      const nextIndex = prevIndex + 1;
+      if (nextIndex === 3) {
+        setActivePhaseIntro(2);
+      } else if (nextIndex === 6) {
+        setActivePhaseIntro(3);
+      }
+      return nextIndex;
+    });
+  }, []);
 
   const handleNextPage = () => {
     if (currentPageIndex < STORY_PAGES.length - 1) {

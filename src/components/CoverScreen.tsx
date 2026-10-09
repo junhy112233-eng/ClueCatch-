@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Sparkles, BookOpen, Award, ArrowRight } from 'lucide-react';
+import { Sparkles, BookOpen, Award, ArrowRight } from 'lucide-react';
 import { COVER_IMAGE } from '../data/storyData';
 import { sound } from '../utils/audio';
 
@@ -16,7 +16,7 @@ export const CoverScreen: React.FC<CoverScreenProps> = ({ onStartInvestigation }
         <div className="md:w-1/2 relative bg-[#F7F3EB] min-h-[320px] md:min-h-[460px] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-[#E8E1D5]">
           <img
             src={COVER_IMAGE}
-            alt="Nate the Great Detective book cover"
+            alt="Nate the Great Detective"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover"
           />
@@ -29,39 +29,26 @@ export const CoverScreen: React.FC<CoverScreenProps> = ({ onStartInvestigation }
         {/* Story Intro & Start Action */}
         <div className="md:w-1/2 p-6 md:p-10 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800">
-              <Search className="w-4 h-4 text-amber-600" />
-              <span>Marjorie Weinman Sharmat's Classic Case</span>
-            </div>
-
-            <h1 className="text-3xl md:text-4xl font-extrabold font-display text-stone-900 tracking-tight leading-tight">
-              ClueCatch! <br />
-              <span className="text-amber-700">Nate the Great</span>
+            <h1 className="text-4xl md:text-5xl font-extrabold font-display text-stone-900 tracking-tight leading-tight">
+              Nate the Great
             </h1>
 
-            <p className="text-stone-700 text-base md:text-lg leading-relaxed font-normal">
-              Meet Nate: a sharp young detective who loves warm pancakes and cold, hard facts.
-              Annie's picture of her dog <strong className="text-stone-900">Fang</strong> has vanished!
-              Can you help Nate inspect 3 suspects, collect all clue badges, and solve the mystery?
+            {/* Concise Prompt Description */}
+            <p className="text-stone-700 text-base md:text-lg leading-relaxed font-medium">
+              Where is Annie's picture of her dog Fang?? Help Nate inspect 3 suspects, collect all clue badges, and solve the mystery?
             </p>
 
-            {/* 3 Suspect Mission Preview */}
-            <div className="grid grid-cols-3 gap-2.5 pt-2">
-              <div className="p-3 bg-amber-50 rounded-2xl border border-amber-200 text-center">
-                <span className="text-2xl block mb-1">🐶</span>
-                <span className="text-xs font-bold text-amber-900 block truncate">Phase 1</span>
-                <span className="text-[11px] text-amber-700 block truncate">Fang the Dog</span>
-              </div>
-              <div className="p-3 bg-indigo-50 rounded-2xl border border-indigo-200 text-center">
-                <span className="text-2xl block mb-1">🐈</span>
-                <span className="text-xs font-bold text-indigo-900 block truncate">Phase 2</span>
-                <span className="text-[11px] text-indigo-700 block truncate">Rosamond's Cats</span>
-              </div>
-              <div className="p-3 bg-orange-50 rounded-2xl border border-orange-200 text-center">
-                <span className="text-2xl block mb-1">🖌️</span>
-                <span className="text-xs font-bold text-orange-900 block truncate">Phase 3</span>
-                <span className="text-[11px] text-orange-700 block truncate">Little Harry</span>
-              </div>
+            {/* Suspect Emojis Only (No Phase 1, 2, 3 text) */}
+            <div className="flex items-center gap-4 py-2 text-stone-600 text-sm font-semibold">
+              <span className="flex items-center gap-1.5 bg-amber-50 px-3 py-1.5 rounded-xl border border-amber-200 text-amber-900">
+                <span className="text-xl">🐶</span> Fang
+              </span>
+              <span className="flex items-center gap-1.5 bg-indigo-50 px-3 py-1.5 rounded-xl border border-indigo-200 text-indigo-900">
+                <span className="text-xl">🐈</span> Rosamond
+              </span>
+              <span className="flex items-center gap-1.5 bg-orange-50 px-3 py-1.5 rounded-xl border border-orange-200 text-orange-900">
+                <span className="text-xl">🖌️</span> Harry
+              </span>
             </div>
           </div>
 
@@ -69,7 +56,7 @@ export const CoverScreen: React.FC<CoverScreenProps> = ({ onStartInvestigation }
           <div className="space-y-3 pt-4 border-t border-stone-200">
             <div className="flex items-center gap-2 text-xs text-stone-600 font-medium">
               <Award className="w-4 h-4 text-amber-600 shrink-0" />
-              <span>Collect 100% of the clue badges (9/9) to unlock Case Closed!</span>
+              <span>Collect all 9 clue badges to solve the case!</span>
             </div>
 
             <button
