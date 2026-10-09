@@ -1,10 +1,23 @@
-import { StoryPage, GlossaryTerm, Suspect, PhaseIntroData, PhaseId } from '../types/story';
+import {
+  StoryPage,
+  GlossaryTerm,
+  Suspect,
+  PhaseIntroData,
+  PhaseId,} from '../types/story';
 
 import COVER_IMAGE from '../assets/images/cover_nate_the_great_1791518048362.jpg';
 import FANG_IMAGE from '../assets/images/scene_fang_annie_1791518059467.jpg';
 import ROSAMOND_IMAGE from '../assets/images/scene_rosamond_cats_1791518070076.jpg';
 import HARRY_IMAGE from '../assets/images/scene_harry_painting_1791518080314.jpg';
 import CELEBRATION_IMAGE from '../assets/images/scene_pancake_celebration_1791518090682.jpg';
+
+export {
+  COVER_IMAGE,
+  FANG_IMAGE,
+  ROSAMOND_IMAGE,
+  HARRY_IMAGE,
+  CELEBRATION_IMAGE,
+};
 
 export const PHASE_INTROS: Record<PhaseId, PhaseIntroData> = {
   1: {
