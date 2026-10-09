@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #2C241E;
+    background-color: #FAF7F2;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Storybook paper texture subtle pattern */
+.bg-notebook-paper {
+  background-color: #FFFDF9;
+  background-image: 
+    linear-gradient(#f1eee7 1px, transparent 1px),
+    linear-gradient(90deg, #f1eee7 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-ruled-lines {
+  background-color: #FEFCF6;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    #E8E3D7 31px,
+    #E8E3D7 32px
+  );
+  line-height: 32px;
+}
+
+/* Glowing hint gadget animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4), 0 0 30px rgba(245, 158, 11, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.7), 0 0 45px rgba(245, 158, 11, 0.35);
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

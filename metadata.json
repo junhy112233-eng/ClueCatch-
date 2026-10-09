@@ -1,0 +1,6 @@
+{
+  "name": "ClueCatch! Nate the Great Detective Reader",
+  "description": "An interactive phased English mystery reader for 3rd-4th grade learners to gather clues, solve color logic puzzles, and crack the Nate the Great case.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
